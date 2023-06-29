@@ -3,6 +3,7 @@ pragma solidity ^0.8.7;
 contract challenge
 {
     uint public a = 67;
+    mapping (address=>uint) balances;
     function typePure(uint c,uint b) public pure returns(uint)
     {
         return (c+b);
@@ -10,5 +11,11 @@ contract challenge
     function typeView(uint b)public view returns(uint)
     {
         return(a+b);
+    }
+    function Deposite()public payable
+    {
+        require(msg.value >= 1 ether);
+        require(balances[msg.sender]==0);//can transfer only once
+        balances[msg.sender]+=msg.value;
     }
 }
