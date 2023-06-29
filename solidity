@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
+contract challenge
+{
+    uint public a = 67;
+    function typePure(uint c,uint b) public pure returns(uint)
+    {
+        return (c+b);
+    }
+    function typeView(uint b)public view returns(uint)
+    {
+        return(a+b);
+    }
+}
